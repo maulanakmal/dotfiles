@@ -31,7 +31,34 @@
       programs.zsh.enable = true;  # default shell on catalina
     };
 
-    homebrew_base_config = {
+    
+    configuration = { pkgs, ... }: {
+      environment.systemPackages =
+        [
+          pkgs.neovim
+          pkgs.oh-my-posh
+          pkgs.fzf
+          pkgs.zoxide
+
+          pkgs.tmux
+          pkgs.sesh
+
+          # pkgs.lazygit
+          pkgs.jq
+          pkgs.yq
+
+          # for gvm (go version manager)
+          pkgs.bison
+          pkgs.mercurial
+
+          # for python version management
+          pkgs.pyenv
+
+          pkgs.tree
+        ];
+    };
+
+    homebrew = {
       nix-homebrew = {
         enable = true;
         mutableTaps = false;
@@ -50,34 +77,11 @@
           "kitty"
           "font-jetbrains-mono-nerd-font"
         ];
-        
-      };
-    };
-    
-    configuration = { pkgs, ... }: {
-      environment.systemPackages =
-        [
-          pkgs.neovim
-          pkgs.oh-my-posh
-          pkgs.fzf
-          pkgs.zoxide
 
-          pkgs.tmux
-          pkgs.sesh
-
-          pkgs.lazygit
-          pkgs.jq
-          pkgs.yq
-
-          # for gvm (go version manager)
-          pkgs.bison
-          pkgs.mercurial
-
-          # for python version management
-          pkgs.pyenv
-
-          pkgs.tree
+        brews = [
+          "lazygit"
         ];
+      };
     };
 
   in
@@ -93,7 +97,7 @@
           
           # homebrew config
           nix-homebrew.darwinModules.nix-homebrew
-          homebrew_base_config
+          homebrew
           {
             nix-homebrew = {
               user = "maulana.akmal";
@@ -119,8 +123,14 @@
       # macbook pro 2023 m2 pro
       "mols_macbook_proc" = nix-darwin.lib.darwinSystem {
         modules = [
+          common_configuration
+          configuration
+          {
+            nixpkgs.hostPlatform = "aarch64-darwin";
+          }
+
           nix-homebrew.darwinModules.nix-homebrew
-          homebrew_base_config
+          homebrew
           {
             nix-homebrew = {
               user = "maulana.akmal";
