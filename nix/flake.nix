@@ -66,9 +66,13 @@
           pkgs.tmux
           pkgs.sesh
 
+          pkgs.lazygit
+
           # for gvm (go version manager)
           pkgs.bison
           pkgs.mercurial
+
+          pkgs.tree
         ];
 
     };

@@ -3,9 +3,14 @@
 { config, pkgs, ... }:
 
 {
+    programs.home-manager.enable = true;
+
     home.username = "maulana.akmal";
     home.homeDirectory = "/Users/maulana.akmal";
     home.stateVersion = "24.05";
 
-    programs.home-manager.enable = true;
+
+    home.file = {
+      ".zshrc".source = ~/Work/dotfiles/zsh/.zshrc;
+    };
 }
