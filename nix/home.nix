@@ -12,6 +12,7 @@
   # need to add --impure args to darwin-rebuild
   home.file = {
     ".zshrc".source         = ~/dotfiles/zsh/.zshrc;
+    ".tmux.conf".source     = ~/dotfiles/tmux/.tmux.conf;
     ".config/kitty".source  = ~/dotfiles/kitty;
     ".config/nvim".source   = ~/dotfiles/nvim;
   };
