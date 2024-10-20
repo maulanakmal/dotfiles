@@ -103,7 +103,6 @@
               home = "/Users/maulana.akmal";
             };
           }
-
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
