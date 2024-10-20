@@ -54,7 +54,6 @@
       };
     };
     
-    
     configuration = { pkgs, ... }: {
       environment.systemPackages =
         [

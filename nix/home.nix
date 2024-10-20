@@ -3,14 +3,15 @@
 { config, pkgs, ... }:
 
 {
-    programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-    home.username = "maulana.akmal";
-    home.homeDirectory = "/Users/maulana.akmal";
-    home.stateVersion = "24.05";
+  home.username = "maulana.akmal";
+  home.homeDirectory = "/Users/maulana.akmal";
+  home.stateVersion = "24.05";
 
-
-    home.file = {
-      ".zshrc".source = ~/Work/dotfiles/zsh/.zshrc;
-    };
+  # need to add --impure args to darwin-rebuild
+  home.file = {
+    ".zshrc".source = ~/dotfiles/zsh/.zshrc;
+    ".config/nvim".source = ~/dotfiles/nvim;
+  };
 }
