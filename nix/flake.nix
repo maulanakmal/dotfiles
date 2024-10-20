@@ -66,14 +66,18 @@
           pkgs.sesh
 
           pkgs.lazygit
+          pkgs.jq
+          pkgs.yq
 
           # for gvm (go version manager)
           pkgs.bison
           pkgs.mercurial
 
+          # for python version management
+          pkgs.pyenv
+
           pkgs.tree
         ];
-
     };
 
   in
@@ -115,7 +119,6 @@
       # macbook pro 2023 m2 pro
       "mols_macbook_proc" = nix-darwin.lib.darwinSystem {
         modules = [
-
           nix-homebrew.darwinModules.nix-homebrew
           homebrew_base_config
           {
