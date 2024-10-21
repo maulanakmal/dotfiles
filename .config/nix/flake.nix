@@ -35,6 +35,9 @@
     configuration = { pkgs, ... }: {
       environment.systemPackages =
         [
+          # for dotfiles symlinking
+          pkgs.stow
+
           pkgs.neovim
           pkgs.oh-my-posh
           pkgs.fzf
@@ -55,6 +58,7 @@
           pkgs.pyenv
 
           pkgs.tree
+          pkgs.fd
         ];
     };
 

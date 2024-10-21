@@ -36,6 +36,7 @@ local lsp_config = {
     ['bashls'] = {},
     ['yamlls'] = {},
     ['nil_ls'] = {},
+    ['buf_ls'] = {},
 }
 
 return {

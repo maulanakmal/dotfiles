@@ -13,7 +13,7 @@ zinit light Aloxaf/fzf-tab
 
 zinit snippet OMZP::git
 
-eval "$(oh-my-posh init zsh --config $(nix-store -q $(which oh-my-posh))/share/oh-my-posh/themes/lightgreen.omp.json)"
+eval "$(oh-my-posh init zsh --config $(nix-store -q $(which oh-my-posh))/share/oh-my-posh/themes/M365Princess.omp.json)"
 
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
