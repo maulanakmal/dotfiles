@@ -6,12 +6,19 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 source "${ZINIT_HOME}/zinit.zsh"
 
+zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-zinit snippet OMZP::git
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+
+zinit snippet OMZP::git/git.plugin.zsh
+zinit snippet OMZP::per-directory-history/per-directory-history.zsh
+
 
 eval "$(oh-my-posh init zsh --config $(nix-store -q $(which oh-my-posh))/share/oh-my-posh/themes/M365Princess.omp.json)"
 
@@ -34,12 +41,11 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+#TODO 
 export SP_UNIX_SOCKET=$HOME/.run/spex/spex.sock
 export SP_INTERCEPT_UNIX_SOCKET=$HOME/.run/spex/spex_intercept.sock
-export PATH=$PATH:$HOME/Library/Python/2.7/bin
+
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:/usr/local/Cellar/mysql-client/9.0.1/bin
 
 export EDITOR=nvim
 alias vim=nvim
@@ -54,9 +60,18 @@ __reload_zshrc() {
 }
 
 
+# Programming language specific setup
+#
+# Go
+# Need to install GVM manually
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# Rust
+
 [[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
+# Python
+# Pyenv will be installed using nixpkgs
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
