@@ -38,6 +38,8 @@
           # for dotfiles symlinking
           pkgs.stow
 
+          pkgs.neofetch
+
           pkgs.neovim
           pkgs.oh-my-posh
           pkgs.fzf
@@ -59,6 +61,12 @@
 
           pkgs.tree
           pkgs.fd
+
+          # rg, used for nvim-telescope
+          pkgs.ripgrep
+
+          pkgs.socat
+          pkgs.redis
         ];
     };
 
@@ -84,6 +92,7 @@
 
         brews = [
           "lazygit"
+          "node"
         ];
       };
     };
