@@ -105,6 +105,8 @@ require("lazy").setup({
       config = function()
         local neotree = require("neo-tree")
         neotree.setup({
+          popup_border_style = "rounded",
+
           close_if_last_window = false,
           filesystem = {
             follow_current_file = {
@@ -188,7 +190,13 @@ require("lazy").setup({
       main = "ibl",
       ---@module "ibl"
       ---@type ibl.config
-      opts = {},
+      opts = {
+        exclude = {
+          filetypes = {
+            "dashboard"
+          }
+        }
+      },
     },
     {
       "ggandor/leap.nvim",
@@ -300,7 +308,6 @@ require("lazy").setup({
       end
     },
     { 'airblade/vim-gitgutter' },
-    { 'fatih/vim-go' },
     {
       "kylechui/nvim-surround",
       version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -384,6 +391,24 @@ require("lazy").setup({
       priority = 1000,
       lazy = true
     },
+    { "tpope/vim-fugitive" },
+    {
+      "olexsmir/gopher.nvim",
+      ft = "go",
+      -- branch = "develop", -- if you want develop branch
+      -- keep in mind, it might break everything
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "mfussenegger/nvim-dap", -- (optional) only if you use `gopher.dap`
+      },
+      -- (optional) will update plugin's deps on every update
+      build = function()
+        vim.cmd.GoInstallDeps()
+      end,
+      ---@type gopher.Config
+      opts = {},
+    }
 
 
   },
