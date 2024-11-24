@@ -35,8 +35,7 @@ local lsp_config = {
     },
     ['bashls'] = {},
     ['yamlls'] = {},
-    ['nil_ls'] = {},
-    ['buf_ls'] = {},
+    ['nil_ls'] = {}, -- for nix language, no formatter support
 }
 
 return {
