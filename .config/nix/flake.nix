@@ -88,6 +88,7 @@
           "shottr"
           "kitty"
           "font-jetbrains-mono-nerd-font"
+          "raycast"
         ];
 
         brews = [
