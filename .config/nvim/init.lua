@@ -4,7 +4,7 @@ end
 
 require("config.lazy")
 
-vim.cmd("colorscheme tokyonight-moon")
+-- vim.cmd("colorscheme tokyonight-moon")
 vim.cmd("set relativenumber")
 vim.cmd("set number")
 
@@ -59,9 +59,6 @@ vim.keymap.set('n', '<C-N>', function() vim.cmd('Neotree toggle position=right')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'LSP format' })
 vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = 'LSP rename' })
 vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, { desc = 'LSP hover' })
-
-vim.keymap.set('n', '<leader>xx', function() vim.cmd('Trouble diagnostics toggle win = { type = float } focus=true') end, { desc = 'diag' })
-
 
 -- vim.api.nvim_create_augroup("neotree", {})
 -- vim.api.nvim_create_autocmd("VimEnter", {

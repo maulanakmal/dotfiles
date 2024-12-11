@@ -262,7 +262,11 @@ require("lazy").setup({
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons' },
       config = function()
-        require('lualine').setup()
+        require('lualine').setup {
+          options = {
+            theme = 'sonokai'
+          }
+        }
       end
     },
     {
@@ -408,7 +412,37 @@ require("lazy").setup({
       end,
       ---@type gopher.Config
       opts = {},
+    },
+    { "sindrets/diffview.nvim" },
+    {
+      "smoka7/multicursors.nvim",
+      event = "VeryLazy",
+      dependencies = {
+        'nvimtools/hydra.nvim',
+      },
+      opts = {},
+      cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+      keys = {
+        {
+          mode = { 'v', 'n' },
+          '<Leader>m',
+          '<cmd>MCstart<cr>',
+          desc = 'Create a selection for selected text or word under the cursor',
+        },
+      },
+    },
+    {
+      'sainnhe/sonokai',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.sonokai_enable_italic = true
+        vim.cmd.colorscheme('sonokai')
+      end
     }
+
 
 
   },
