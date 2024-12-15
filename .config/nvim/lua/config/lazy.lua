@@ -139,7 +139,7 @@ require("lazy").setup({
             project = {
               base_dirs = {
                 '~/.config/nvim',
-                '~/Work/shopee',
+                -- '~/Work/shopee',
               },
             },
           },
