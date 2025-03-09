@@ -26,12 +26,23 @@ local function find_files()
     -- local theme = telescope_themes.get_dropdown({ winblend = 10 })
     telescope_builtin.find_files()
 end
+
+local function find_proto_files()
+    -- local theme = telescope_themes.get_dropdown({ winblend = 10 })
+    telescope_builtin.find_files({
+        no_ignore = true,
+        hidden = true,
+        search_file = '*.proto',
+    })
+end
+
 local function live_grep()
     -- local theme = telescope_themes.get_dropdown({ winblend = 10 })
     telescope_builtin.live_grep()
 end
 
 vim.keymap.set('n', '<leader>f', find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>pf', find_proto_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>g', live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>b', telescope_builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>th', telescope_builtin.help_tags, { desc = 'Telescope help tags' })
@@ -39,6 +50,13 @@ vim.keymap.set('n', '<leader>th', telescope_builtin.help_tags, { desc = 'Telesco
 vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations, { desc = 'Telescope buffers' })
 vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions, { desc = 'Telescope buffers' })
 vim.keymap.set('n', 'gc', telescope_builtin.lsp_incoming_calls, { desc = 'Telescope buffers' })
+vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, { desc = 'Telescope buffers' })
+vim.keymap.set('n', 'go', telescope_builtin.lsp_outgoing_calls, { desc = 'Telescope buffers' })
+
+vim.keymap.set('n', 'gst', telescope_builtin.git_status, { desc = 'Telescope buffers' })
+
+vim.keymap.set('n', 'lds', telescope_builtin.lsp_document_symbols, { desc = 'Telescope buffers' })
+vim.keymap.set('n', 'lws', telescope_builtin.lsp_workspace_symbols, { desc = 'Telescope buffers' })
 
 -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'LSP format' })
 
@@ -50,11 +68,9 @@ local function goToDefinition()
     if lsp_attached() then
         vim.lsp.buf.definition()
     end
-
-
 end
 
-vim.keymap.set('n', '<C-N>', function() vim.cmd('Neotree toggle position=right') end, { desc = 'Go to definition' })
+vim.keymap.set('n', '<C-N>', function() vim.cmd('Neotree toggle position=left') end, { desc = 'Go to definition' })
 
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'LSP format' })
 vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = 'LSP rename' })
@@ -72,3 +88,15 @@ vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, { desc = 'LSP hover' })
 --         -- end
 --     end,
 -- })
+--
+vim.api.nvim_create_user_command("Format", function(args)
+    local range = nil
+    if args.count ~= -1 then
+        local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+        range = {
+            start = { args.line1, 0 },
+            ["end"] = { args.line2, end_line:len() },
+        }
+    end
+    require("conform").format({ async = true, lsp_format = "fallback", range = range })
+end, { range = true })

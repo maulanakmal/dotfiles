@@ -18,6 +18,8 @@ bindkey '^[[B' history-substring-search-down
 
 zinit snippet OMZP::git/git.plugin.zsh
 zinit snippet OMZP::per-directory-history/per-directory-history.zsh
+alias gcnvm='git commit --no-verify --message'
+
 
 
 eval "$(oh-my-posh init zsh --config $(nix-store -q $(which oh-my-posh))/share/oh-my-posh/themes/M365Princess.omp.json)"

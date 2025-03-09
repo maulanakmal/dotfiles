@@ -67,6 +67,7 @@
 
           pkgs.socat
           pkgs.redis
+          pkgs.wget
         ];
     };
 
@@ -79,6 +80,8 @@
           "homebrew/homebrew-cask"      = homebrew-cask;
           "homebrew/homebrew-bundle"    = homebrew-bundle;
         };
+        # autoUpdate = true;
+        # upgrade = true;
       };
 
       homebrew = {
@@ -89,11 +92,17 @@
           "kitty"
           "font-jetbrains-mono-nerd-font"
           "raycast"
+          "readdle-spark"
+          "alt-tab"
         ];
 
         brews = [
           "lazygit"
           "node"
+          "xsv"
+          "graphviz" #for plantuml
+
+          "zookeeper"
         ];
       };
     };

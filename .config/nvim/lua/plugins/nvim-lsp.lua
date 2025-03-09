@@ -20,9 +20,9 @@ local lsp_config = {
                 workspace = {
                     checkThirdParty = false,
                     library = {
-                      vim.env.VIMRUNTIME,
-                      "${3rd}/luv/library"
-                      -- "${3rd}/busted/library",
+                        vim.env.VIMRUNTIME,
+                        "${3rd}/luv/library"
+                        -- "${3rd}/busted/library",
                     }
                     -- -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
                     -- library = vim.api.nvim_get_runtime_file("", true)
@@ -36,6 +36,11 @@ local lsp_config = {
     ['bashls'] = {},
     ['yamlls'] = {},
     ['nil_ls'] = {}, -- for nix language, no formatter support
+
+    -- protobuf
+    -- ['bufls'] = {}, -- protobuf, not working cause 1 folder contains multiple files that has the same symbol name
+    -- ['pbls'] = {}, -- protobuf
+    ['protols'] = {}, -- protobuf
 }
 
 return {
