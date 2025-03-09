@@ -22,18 +22,9 @@ vim.o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 local telescope_builtin = require('telescope.builtin')
 local telescope_themes = require('telescope.themes')
 
-local function find_files()
+local function find_files_with_hidden_files()
     -- local theme = telescope_themes.get_dropdown({ winblend = 10 })
-    telescope_builtin.find_files()
-end
-
-local function find_proto_files()
-    -- local theme = telescope_themes.get_dropdown({ winblend = 10 })
-    telescope_builtin.find_files({
-        no_ignore = true,
-        hidden = true,
-        search_file = '*.proto',
-    })
+    telescope_builtin.find_files({hidden = true})
 end
 
 local function live_grep()
@@ -41,8 +32,8 @@ local function live_grep()
     telescope_builtin.live_grep()
 end
 
-vim.keymap.set('n', '<leader>f', find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>pf', find_proto_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>f', telescope_builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader><leader>f', find_files_with_hidden_files, { desc = 'Telescope find files with hidden files' })
 vim.keymap.set('n', '<leader>g', live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>b', telescope_builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>th', telescope_builtin.help_tags, { desc = 'Telescope help tags' })
@@ -75,6 +66,10 @@ vim.keymap.set('n', '<C-N>', function() vim.cmd('Neotree toggle position=left') 
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'LSP format' })
 vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = 'LSP rename' })
 vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, { desc = 'LSP hover' })
+
+vim.keymap.set('n', '<leader>xx', function() vim.cmd('Trouble diagnostics toggle win = { type = float } focus=true') end,
+    { desc = 'diag' })
+
 
 -- vim.api.nvim_create_augroup("neotree", {})
 -- vim.api.nvim_create_autocmd("VimEnter", {

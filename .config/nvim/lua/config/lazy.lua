@@ -133,16 +133,29 @@ require("lazy").setup({
               prompt_position = "top", -- Moves the prompt to the top
               -- anchor = "center"
             },
+            mappings = {
+              i = {
+                -- map actions.which_key to <C-h> (default: <C-/>)
+                -- actions.which_key shows the mappings for your picker,
+                -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+                -- ["<C-h>"] = "which_key"
+              }
+            }
           },
 
-          extensions = {
-            project = {
-              base_dirs = {
-                '~/.config/nvim',
-                -- '~/Work/shopee',
-              },
-            },
-          },
+          -- extensions = {
+          --   project = {
+          --     base_dirs = {
+          --       '~/.config/nvim',
+          --       -- '~/Work/shopee',
+          --     },
+          --   },
+          -- },
+
+          pickers = {
+            find_files = {
+            }
+          }
         }
 
         telescope.load_extension('project')
