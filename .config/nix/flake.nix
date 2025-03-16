@@ -95,6 +95,10 @@
           pkgs.wget
 
           pkgs.lnav
+          pkgs.jdk
+          pkgs.gradle
+
+          pkgs.docker
         ];
     };
 
@@ -113,14 +117,27 @@
 
       homebrew = {
         enable = true;
+        onActivation = {
+          autoUpdate = true;
+          upgrade = true;
+          cleanup = "uninstall";
+          extraFlags = [
+            "--verbose"
+          ];
+        };
+
         casks = [
           "shottr"
           "kitty"
           "font-jetbrains-mono-nerd-font"
           "raycast"
-          "readdle-spark"
           "alt-tab"
+          {
+            name = "readdle-spark";
+            greedy = true;
+          }
         ];
+
 
         brews = [
           "lazygit"
