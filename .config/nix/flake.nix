@@ -93,6 +93,8 @@
           pkgs.socat
           pkgs.redis
           pkgs.wget
+
+          pkgs.lnav
         ];
     };
 
