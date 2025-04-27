@@ -318,7 +318,8 @@ require("lazy").setup({
         require("conform").setup({
           formatters_by_ft = {
             lua = { "stylua" },
-            proto = { "buf" }
+            proto = { "buf" },
+            python = { 'black' }
           },
         }
         )

@@ -69,8 +69,8 @@ __reload_zshrc() {
 DEFAULT_GO_VERSION=go1.23.4
 [[ ! -d "$HOME/.gvm" ]] && ! command -v gvm && GVM_NO_UPDATE_PROFILE=true bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && ! (gvm list | grep "$DEFAULT_GO_VERSION") && gvm install "$DEFAULT_GO_VERSION" -B
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && ! (gvm list | grep "=>") && gvm use --default "$DEFAULT_GO_VERSION"
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && ! (gvm list | grep "$DEFAULT_GO_VERSION") && gvm install "$DEFAULT_GO_VERSION" -B
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && ! (gvm list | grep "=>") && gvm use --default "$DEFAULT_GO_VERSION"
 
 # Rust
 
