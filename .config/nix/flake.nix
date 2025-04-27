@@ -147,6 +147,7 @@
           "graphviz" #for plantuml
 
           "zookeeper"
+          "gnupg"
         ];
       };
     };

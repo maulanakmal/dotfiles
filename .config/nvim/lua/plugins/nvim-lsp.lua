@@ -40,7 +40,7 @@ local lsp_config = {
     -- protobuf
     -- ['bufls'] = {}, -- protobuf, not working cause 1 folder contains multiple files that has the same symbol name
     -- ['pbls'] = {}, -- protobuf
-    ['protols'] = {}, -- protobuf
+    -- ['protols'] = {}, -- protobuf
     ['kotlin_language_server'] = {},
 }
 

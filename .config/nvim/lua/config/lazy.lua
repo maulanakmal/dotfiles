@@ -1,6 +1,7 @@
 -- Bootstrap lazy.nvim
 -- vim: ts=2 sts=2 sw=2 et
 
+-- This file can be loaded by calling `lua require('lazy')` from your init.vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -398,7 +399,13 @@ require("lazy").setup({
       "jackMort/ChatGPT.nvim",
       event = "VeryLazy",
       config = function()
-        require("chatgpt").setup()
+        local home = vim.fn.expand("$HOME")
+        require("chatgpt").setup({
+          api_key_cmd = "gpg --decrypt " .. home .. "/.openapikey.gpg",
+          popup_input = {
+            submit = "<CR>"
+          }
+        })
       end,
       dependencies = {
         "MunifTanjim/nui.nvim",
@@ -406,10 +413,51 @@ require("lazy").setup({
         "folke/trouble.nvim", -- optional
         "nvim-telescope/telescope.nvim"
       }
+    },
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+        -- {
+        --   "<c-k>",
+        --   "<cmd>ChatGPT<cr>",
+        --   desc = "ChatGPT",
+        -- },
+        {
+          "<C-k>",
+          function()
+            -- Find existing ChatGPT buffer
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+              if vim.api.nvim_buf_get_name(buf):match("chatgpt%-.*") then
+                -- If found, close the ChatGPT window
+                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                  if vim.api.nvim_win_get_buf(win) == buf then
+                    vim.api.nvim_win_close(win, true)
+                    return
+                  end
+                end
+              end
+            end
+            -- If no ChatGPT buffer open, open it
+            vim.cmd("ChatGPT")
+          end,
+          desc = "ChatGPT Toggle",
+        },
+
+      },
     }
-
-
-
   },
 
   -- Configure any other settings here. See the documentation for more details.
