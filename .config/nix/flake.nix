@@ -98,7 +98,8 @@
           pkgs.jdk
           pkgs.gradle
 
-          pkgs.docker
+          pkgs.docker-compose
+
         ];
     };
 
