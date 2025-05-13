@@ -1,0 +1,33 @@
+packages:
+  darwin:
+    taps:
+    - 'jandedobbeleer/oh-my-posh'
+    brews:
+    - 'tmux'
+    - 'neovim'
+    - 'jandedobbeleer/oh-my-posh/oh-my-posh'
+    - 'fzf'
+    - 'zoxide'
+    - 'pyenv'
+    - 'gpg'
+    - 'sesh'
+    - 'node'
+    - 'xsv'
+    - 'pipx'
+    - 'sshpass' # for ansible
+    casks:
+    - 'kitty'
+    - 'shottr'
+    - 'raycast'
+    - 'maccy'
+    - 'readdle-spark'
+    - 'alt-tab'
+    - 'hammerspoon'
+    pipx:
+    - 'ansible-core'
+    - 'ansible'
+    ansible_galaxy_collections:
+    - 'ansible.posix'
+
+
+
