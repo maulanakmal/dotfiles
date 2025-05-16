@@ -18,6 +18,7 @@ packages:
     - 'sshpass' # for ansible
     - 'socat'
     - 'ripgrep'
+    - 'tree'
     casks:
     - 'font-jetbrains-mono-nerd-font'
     - 'kitty'
