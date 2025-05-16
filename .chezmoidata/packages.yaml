@@ -3,6 +3,7 @@ packages:
     taps:
     - 'jandedobbeleer/oh-my-posh'
     brews:
+    - 'wget'
     - 'tmux'
     - 'neovim'
     - 'jandedobbeleer/oh-my-posh/oh-my-posh'
@@ -15,7 +16,10 @@ packages:
     - 'xsv'
     - 'pipx'
     - 'sshpass' # for ansible
+    - 'socat'
+    - 'ripgrep'
     casks:
+    - 'font-jetbrains-mono-nerd-font'
     - 'kitty'
     - 'shottr'
     - 'raycast'

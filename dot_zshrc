@@ -31,7 +31,7 @@ zinit snippet OMZP::per-directory-history/per-directory-history.zsh
 alias gcnvm='git commit --no-verify --message'
 
 
-command -v brew > /dev/null 2>&1 && eval "$(/opt/homebrew/bin/brew shellenv)"
+command -v brew > /dev/null 2>&1 && eval "$(brew shellenv)"
 command -v oh-my-posh > /dev/null 2>&1 && eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/agnoster.omp.json)" 
 command -v zoxide > /dev/null 2>&1 && eval "$(zoxide init zsh)"
 command -v fzf > /dev/null 2>&1 && eval "$(fzf --zsh)"

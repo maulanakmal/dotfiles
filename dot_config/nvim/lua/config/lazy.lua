@@ -163,7 +163,25 @@ require("lazy").setup({
       config = function()
         local config = {
           -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+          ensure_installed = { 
+            "c",
+            "lua",
+            "vim",
+            "vimdoc",
+            "query",
+            "markdown",
+            "markdown_inline",
+            "go",
+            "rust",
+            "python",
+            "java",
+            "kotlin",
+            "json",
+            "yaml",
+            "toml",
+            "bash",
+            "diff",
+          },
 
           -- Install parsers synchronously (only applied to `ensure_installed`)
           sync_install = false,
