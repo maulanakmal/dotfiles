@@ -21,17 +21,14 @@ packages:
     casks:
     - 'font-jetbrains-mono-nerd-font'
     - 'kitty'
-    - 'shottr'
     - 'raycast'
     - 'maccy'
     - 'readdle-spark'
     - 'alt-tab'
     - 'hammerspoon'
+    - 'shottr'
     pipx:
     - 'ansible-core'
     - 'ansible'
     ansible_galaxy_collections:
     - 'ansible.posix'
-
-
-

@@ -51,8 +51,8 @@ alias vim=nvim
 alias v=nvim
 
 
-zle -N sesh-sessions
-bindkey "^K" sesh-sessions
+zle -N sesh_sessions
+bindkey "\ek" sesh_sessions
 
 __reload_zshrc() {
     source ~/.zshrc
