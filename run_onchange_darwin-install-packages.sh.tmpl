@@ -1,10 +1,19 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/zsh
+{{ end -}}
 
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+{{ end -}}
+
+{{ if eq .chezmoi.os "darwin" -}}
 brew bundle --file=/dev/stdin <<EOF
-
 {{ range .packages.darwin.taps -}}
 tap {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.common -}}
+brew {{ . | quote }}
 {{ end -}}
 
 {{ range .packages.darwin.brews -}}
@@ -15,14 +24,17 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
+{{ end -}}
 
-{{ range .packages.darwin.pipx -}}
+{{ if eq .chezmoi.os "linux" -}}
+{{ end -}}
+
+{{/* darwin and linux */}}
+{{ range .packages.pipx -}}
 pipx install {{ . | quote  }}
 {{ end -}}
 
-{{ range .packages.darwin.ansible_galaxy_collections -}}
+{{ range .packages.ansible_galaxy_collections -}}
 ansible-galaxy collection install {{ . | quote }}
-{{ end -}}
-
 {{ end -}}
 

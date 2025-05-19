@@ -1,11 +1,18 @@
 packages:
+  pipx:
+  - 'ansible-core'
+  - 'ansible'
+  ansible_galaxy_collections:
+  - 'ansible.posix'
+
+  common:
+    - 'wget'
+    - 'tmux'
+    - 'neovim'
   darwin:
     taps:
     - 'jandedobbeleer/oh-my-posh'
     brews:
-    - 'wget'
-    - 'tmux'
-    - 'neovim'
     - 'jandedobbeleer/oh-my-posh/oh-my-posh'
     - 'fzf'
     - 'zoxide'
@@ -28,8 +35,5 @@ packages:
     - 'alt-tab'
     - 'hammerspoon'
     - 'shottr'
-    pipx:
-    - 'ansible-core'
-    - 'ansible'
-    ansible_galaxy_collections:
-    - 'ansible.posix'
+
+

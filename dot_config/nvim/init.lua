@@ -1,16 +1,20 @@
+local vim = vim 
+local opt = vim.opt
+
 if vim.g.vscode then
     return
 end
 
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.number = true
+opt.relativenumber = true
+opt.expandtab = true
+vim.diagnostic.config({
+    virtual_text = true,
+})
+
 require("config.lazy")
-
--- vim.cmd("colorscheme tokyonight-moon")
-vim.cmd("set relativenumber")
-vim.cmd("set number")
-
-vim.cmd("set shiftwidth=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set expandtab")
 
 vim.o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 
