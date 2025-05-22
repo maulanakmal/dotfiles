@@ -26,6 +26,7 @@ packages:
     - 'socat'
     - 'ripgrep'
     - 'tree'
+    - 'fontconfig'
     casks:
     - 'font-jetbrains-mono-nerd-font'
     - 'kitty'
@@ -35,5 +36,5 @@ packages:
     - 'alt-tab'
     - 'hammerspoon'
     - 'shottr'
-
-
+    - 'discord'
+    - 'balenaetcher'

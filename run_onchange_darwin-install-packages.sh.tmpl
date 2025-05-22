@@ -27,6 +27,7 @@ EOF
 {{ end -}}
 
 {{ if eq .chezmoi.os "linux" -}}
+{{/* todo */}}
 {{ end -}}
 
 {{/* darwin and linux */}}
@@ -37,4 +38,3 @@ pipx install {{ . | quote  }}
 {{ range .packages.ansible_galaxy_collections -}}
 ansible-galaxy collection install {{ . | quote }}
 {{ end -}}
-
