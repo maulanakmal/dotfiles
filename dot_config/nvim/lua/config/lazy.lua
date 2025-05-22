@@ -28,6 +28,13 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+
+    {
+      "rcarriga/nvim-notify",
+      config = function()
+        vim.notify = require("notify")
+      end
+    },
     -- import your plugins
     { import = "plugins" },
     {
@@ -163,7 +170,7 @@ require("lazy").setup({
       config = function()
         local config = {
           -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-          ensure_installed = { 
+          ensure_installed = {
             "c",
             "lua",
             "vim",
@@ -209,7 +216,7 @@ require("lazy").setup({
               if lang == 'sql' then
                 return true
               end
-              local max_filesize = 100 * 1024 -- 100 KB
+              local max_filesize = 200 * 1024 -- 100 KB
               local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
               if ok and stats and stats.size > max_filesize then
                 return true
@@ -479,7 +486,7 @@ require("lazy").setup({
 
       },
     },
-    {"alker0/chezmoi.vim"}
+    { "alker0/chezmoi.vim" }
   },
 
   -- Configure any other settings here. See the documentation for more details.
