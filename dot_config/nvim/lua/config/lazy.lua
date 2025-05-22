@@ -1,6 +1,3 @@
--- Bootstrap lazy.nvim
--- vim: ts=2 sts=2 sw=2 et
-
 -- This file can be loaded by calling `lua require('lazy')` from your init.vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
