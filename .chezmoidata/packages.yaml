@@ -9,6 +9,7 @@ packages:
     - 'wget'
     - 'tmux'
     - 'neovim'
+    - 'bat'
   darwin:
     taps:
     - 'jandedobbeleer/oh-my-posh'
