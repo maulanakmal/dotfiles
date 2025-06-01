@@ -13,8 +13,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
@@ -52,6 +50,9 @@ alias v=nvim
 
 
 zle -N sesh_sessions
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^J' autosuggest-accept
 bindkey "\ek" sesh_sessions
 
 __reload_zshrc() {

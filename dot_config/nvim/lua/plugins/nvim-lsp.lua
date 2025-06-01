@@ -1,6 +1,27 @@
 lsp_configs = {
     ['pyright'] = {},
-    ['gopls'] = {},
+    ['gopls'] = {
+        settings = {
+            gopls = {
+                gofumpt = true,
+                -- analyses = {
+                --     unusedparams = true,
+                --     shadow = true,
+                --     unreachable = true,
+                -- },
+                -- staticcheck = true,
+                -- usePlaceholders = true,
+                -- completeUnimported = true,
+                -- codelenses = {
+                --     generate = true,
+                --     gc_details = true,
+                --     test = true,
+                --     tidy = true,
+                --     upgrade_dependency = true,
+                -- },
+            }
+        }
+    },
     ['lua_ls'] = {
         on_init = function(client)
             if client.workspace_folders then
