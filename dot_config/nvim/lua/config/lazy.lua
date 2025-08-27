@@ -420,25 +420,25 @@ require("lazy").setup({
             end
         },
         -- Lazy
-        {
-            "jackMort/ChatGPT.nvim",
-            event = "VeryLazy",
-            config = function()
-                local home = vim.fn.expand("$HOME")
-                require("chatgpt").setup({
-                    api_key_cmd = "gpg --decrypt " .. home .. "/.openapikey.gpg",
-                    popup_input = {
-                        submit = "<CR>"
-                    }
-                })
-            end,
-            dependencies = {
-                "MunifTanjim/nui.nvim",
-                "nvim-lua/plenary.nvim",
-                "folke/trouble.nvim", -- optional
-                "nvim-telescope/telescope.nvim"
-            }
-        },
+        -- {
+        --     "jackMort/ChatGPT.nvim",
+        --     event = "VeryLazy",
+        --     config = function()
+        --         local home = vim.fn.expand("$HOME")
+        --         require("chatgpt").setup({
+        --             api_key_cmd = "gpg --decrypt " .. home .. "/.openapikey.gpg",
+        --             popup_input = {
+        --                 submit = "<CR>"
+        --             }
+        --         })
+        --     end,
+        --     dependencies = {
+        --         "MunifTanjim/nui.nvim",
+        --         "nvim-lua/plenary.nvim",
+        --         "folke/trouble.nvim", -- optional
+        --         "nvim-telescope/telescope.nvim"
+        --     }
+        -- },
         {
             "folke/which-key.nvim",
             event = "VeryLazy",
@@ -460,26 +460,26 @@ require("lazy").setup({
                 --   "<cmd>ChatGPT<cr>",
                 --   desc = "ChatGPT",
                 -- },
-                {
-                    "<C-k>",
-                    function()
-                        -- Find existing ChatGPT buffer
-                        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-                            if vim.api.nvim_buf_get_name(buf):match("chatgpt%-.*") then
-                                -- If found, close the ChatGPT window
-                                for _, win in ipairs(vim.api.nvim_list_wins()) do
-                                    if vim.api.nvim_win_get_buf(win) == buf then
-                                        vim.api.nvim_win_close(win, true)
-                                        return
-                                    end
-                                end
-                            end
-                        end
-                        -- If no ChatGPT buffer open, open it
-                        vim.cmd("ChatGPT")
-                    end,
-                    desc = "ChatGPT Toggle",
-                },
+                -- {
+                --     "<C-k>",
+                --     function()
+                --         -- Find existing ChatGPT buffer
+                --         for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                --             if vim.api.nvim_buf_get_name(buf):match("chatgpt%-.*") then
+                --                 -- If found, close the ChatGPT window
+                --                 for _, win in ipairs(vim.api.nvim_list_wins()) do
+                --                     if vim.api.nvim_win_get_buf(win) == buf then
+                --                         vim.api.nvim_win_close(win, true)
+                --                         return
+                --                     end
+                --                 end
+                --             end
+                --         end
+                --         -- If no ChatGPT buffer open, open it
+                --         vim.cmd("ChatGPT")
+                --     end,
+                --     desc = "ChatGPT Toggle",
+                -- },
 
             },
         },
