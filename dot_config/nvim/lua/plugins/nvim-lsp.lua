@@ -63,6 +63,7 @@ lsp_configs = {
     -- ['pbls'] = {}, -- protobuf
     -- ['protols'] = {}, -- protobuf
     ['kotlin_language_server'] = {},
+    ['thriftls'] = {},
 }
 
 return {
