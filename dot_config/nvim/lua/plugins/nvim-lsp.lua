@@ -63,6 +63,8 @@ lsp_configs = {
     -- ['pbls'] = {}, -- protobuf
     -- ['protols'] = {}, -- protobuf
     ['kotlin_language_server'] = {},
+
+    ['clangd'] = {},
 }
 
 return {
@@ -92,8 +94,8 @@ return {
             end
 
             mason_lspconfig.setup {
-                automatic_enable = false
-                -- ensure_installed = lsp_list,
+                automatic_enable = false,
+                ensure_installed = lsp_list,
             }
             for ls, config in pairs(lsp_configs) do
                 lspconfig[ls].setup(config)
