@@ -1,0 +1,19 @@
+model = "gpt-5.3-codex"
+[projects."/Users/bytedance/.local/share/chezmoi"]
+trust_level = "untrusted"
+
+[projects."/Users/bytedance/Dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/bytedance/Workspace/personal/assettracker"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.2-codex" = "gpt-5.3-codex"
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@latest"]
+
+[tui]
+status_line = ["current-dir", "model-name", "context-used", "context-remaining", "five-hour-limit", "weekly-limit"]

@@ -81,3 +81,8 @@ DEFAULT_GO_VERSION=go1.23.4
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+
+# todo
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+
