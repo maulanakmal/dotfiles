@@ -1,0 +1,49 @@
+packages:
+  pipx:
+  - 'ansible-core'
+  - 'ansible'
+  ansible_galaxy_collections:
+  - 'ansible.posix'
+
+  common:
+    - 'wget'
+    - 'tmux'
+    - 'neovim'
+    - 'bat'
+  darwin:
+    taps:
+    - 'jandedobbeleer/oh-my-posh'
+    brews:
+    - 'jandedobbeleer/oh-my-posh/oh-my-posh'
+    - 'fzf'
+    - 'zoxide'
+    - 'pyenv'
+    - 'gpg'
+    - 'sesh'
+    - 'xsv'
+    - 'pipx'
+    - 'sshpass' # for ansible
+    - 'socat'
+    - 'ripgrep'
+    - 'tree'
+    - 'fontconfig'
+    - 'node@22'
+    - 'graphviz'
+    - 'rustup'
+    - 'yazi'
+    - 'stow'
+    casks:
+    - 'font-jetbrains-mono-nerd-font'
+    - 'kitty'
+    - 'raycast'
+    - 'maccy'
+    - 'readdle-spark'
+    - 'alt-tab'
+    - 'hammerspoon'
+    - 'shottr'
+    - 'discord'
+    - 'balenaetcher'
+    - 'visual-studio-code'
+    - 'sublime-text'
+    - 'obsidian'
+    - 'codex'

@@ -47,9 +47,15 @@ require("lazy").setup({
                 local neotree = require("neo-tree")
                 neotree.setup({
                     popup_border_style = "rounded",
-
                     close_if_last_window = false,
                     filesystem = {
+                        filtered_items = {
+                            -- visible = true,
+                            hide_by_name = {
+                                ".git"
+                            },
+                            hide_dotfiles = false
+                        },
                         follow_current_file = {
                             enabled = true,          -- This will find and focus the file in the active buffer every time
                             --               -- the current file is changed while the tree is open.
